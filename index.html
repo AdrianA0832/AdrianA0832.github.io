@@ -49,8 +49,11 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p class="typewriter-text" id="bio-text"></p>
-                    <p>Specializing in offensive security operations, threat modeling, and infrastructure hardening. My
-                        mission is to expose vulnerabilities before they can be exploited by malicious actors.</p>
+                    <p>Learning offensive security concepts and threat modeling basics,
+                        with the aim of understanding vulnerabilities and how systems
+                        can be better protected.</p>
+                    <p class="terminal-text" style="margin-top: 1rem;">mindset: learn -> test -> improve | ethics >
+                        shortcuts</p>
                 </div>
                 <div class="profile-card">
                     <div class="glitch-img-container">
@@ -129,29 +132,150 @@
             </div>
         </section>
 
+        <section id="experience" class="container section">
+            <h2 class="section-title"><span class="hash">#</span> experience_log</h2>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Sep 2023</span>
+                            <div class="timeline-role">Event Coordinator</div>
+                            <span class="timeline-company">Techtronix</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Jun 2025</span>
+                            <div class="timeline-role">Cybersecurity Intern</div>
+                            <span class="timeline-company">IIT Madras (Mechanica 2025)</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Jul 2025 – Oct 2025</span>
+                            <div class="timeline-role">Cybersecurity Virtual Intern</div>
+                            <span class="timeline-company">Deloitte (Forage)</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Aug 2025 – Nov 2025</span>
+                            <div class="timeline-role">Cybersecurity & VAPT Training</div>
+                            <span class="timeline-company">4 Months</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Dec 2025 – Oct 2025</span>
+                            <div class="timeline-role">VAPT Intern</div>
+                            <span class="timeline-company">Gateway Software Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="thinking" class="container section" style="max-width: 800px;">
+            <h2 class="section-title"><span class="hash">#</span> threat_thinking</h2>
+            <div class="terminal-text" style="line-height: 1.6;">
+                <p>When I look at an application, I do not start with tools.
+                    I start with questions.</p>
+
+                <hr style="border: 0; border-top: 1px dashed #333; margin: 2rem 0;">
+
+                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Mental model:</h3>
+
+                <p>
+                    1. What does this system trust by default?<br>
+                    2. Who is allowed to interact with it?<br>
+                    3. Where does user-controlled data enter?<br>
+                    4. What assumptions are being made?<br>
+                    5. What happens if one assumption is wrong?
+                </p>
+
+                <hr style="border: 0; border-top: 1px dashed #333; margin: 2rem 0;">
+
+                <p><span style="color: var(--accent-color);">I focus more on:</span><br>
+                    • Logic flaws over payloads<br>
+                    • Trust boundaries over endpoints<br>
+                    • Design intent over implementation details</p>
+
+                <p style="margin-top: 2rem;">My goal is not to break applications,
+                    but to understand how they fail
+                    so they can be designed more securely.</p>
+            </div>
+        </section>
+
         <section id="contact" class="container section">
             <h2 class="section-title"><span class="hash">#</span> initiate_comms</h2>
             <div class="contact-wrapper">
-                <form class="terminal-form">
-                    <div class="form-group">
-                        <label for="name">> username:</label>
-                        <input type="text" id="name" required placeholder="_">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control close"></span>
+                            <span class="control minimize"></span>
+                            <span class="control maximize"></span>
+                        </div>
+                        <div class="terminal-title">secure_channel.exe</div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">> email_address:</label>
-                        <input type="email" id="email" required placeholder="_">
+                    <div class="terminal-body">
+                        <div class="terminal-log">
+                            <p>> establishing secure channel...</p>
+                            <p>> identity: cybersecurity_student</p>
+                            <p>> intent: professional_contact</p>
+                            <p class="status-ready">> status: ready</p>
+                        </div>
+
+                        <form class="terminal-form" action="https://formsubmit.co/adriananthony0832@gmail.com"
+                            method="POST">
+
+                            <!-- Spam protection -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="text" name="_honey" style="display:none">
+
+                            <!-- Email configuration -->
+                            <input type="hidden" name="_subject" value="New Secure Transmission from Portfolio">
+                            <input type="hidden" name="_template" value="table">
+                            <!-- Redirect to custom thank you page -->
+                            <input type="hidden" name="_next" value="http://localhost:3000/thank-you.html">
+
+                            <div class="form-group">
+                                <label>&gt; username:</label>
+                                <input type="text" name="username" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>&gt; email_address:</label>
+                                <input type="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>&gt; transmission:</label>
+                                <textarea name="message" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="terminal-btn">
+                                SEND TRANSMISSION
+                            </button>
+                        </form>
+
+                        <div class="submission-feedback" id="feedback" style="display: none;">
+                            <p>> transmission sent</p>
+                            <p>> delivery: successful</p>
+                            <p>> channel: secure</p>
+                        </div>
+
+                        <div class="privacy-notice">
+                            <p class="notice-header">[secure_notice]</p>
+                            <p>Minimal data collected. Honeypot-based spam protection enabled.</p>
+                            <p>Messages are delivered directly to my inbox.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">> transmission:</label>
-                        <textarea id="message" rows="5" required placeholder="_"></textarea>
-                    </div>
-                    <button type="submit" class="btn primary">Send Transmission</button>
-                </form>
-                <div class="social-links">
-                    <a href="#" class="social-btn">GitHub</a>
-                    <a href="#" class="social-btn">LinkedIn</a>
-                    <a href="#" class="social-btn">Twitter/X</a>
-                    <a href="#" class="social-btn">PGP Key</a>
                 </div>
             </div>
         </section>

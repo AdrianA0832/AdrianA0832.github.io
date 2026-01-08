@@ -65,4 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
             logo.style.textShadow = 'none';
         });
     }
+
+
+    // --- Domain Security Check ---
+    const allowedDomains = ['localhost', '127.0.0.1', 'adrianinfosec.me', 'adriananthony0832.github.io'];
+    const currentDomain = window.location.hostname;
+
+    // Check if we are on an allowed domain
+    // Simple check: if hostname is not in allowed list (and not empty for file://)
+    if (currentDomain && !allowedDomains.includes(currentDomain)) {
+        console.warn('Security Alert: Unauthorized Domain Access detected.');
+    }
 });

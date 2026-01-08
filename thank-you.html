@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transmission Confirmed">
+    <title>Transmission Received</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .terminal-window {
+            width: 100%;
+            max-width: 600px;
+            margin: 1rem;
+        }
+
+        .success-message {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .status-lines {
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 1rem;
+        }
+
+        .center-btn {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <canvas id="matrix" style="opacity: 0.3;"></canvas>
+
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+            </div>
+            <div class="terminal-title">secure_channel.exe</div>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-log">
+                <h2
+                    style="color: var(--accent-color); font-family: var(--font-mono); margin-bottom: 1.5rem; text-align: center;">
+                    > transmission_received</h2>
+
+                <div class="status-lines">
+                    <p id="line1"></p>
+                    <p id="line2"></p>
+                    <p id="line3"></p>
+                </div>
+
+                <div class="success-message" style="opacity: 0; transition: opacity 1s ease;">
+                    <p>Thank you for reaching out.</p>
+                    <p>Your transmission has been securely delivered.</p>
+                </div>
+
+                <div class="center-btn" style="opacity: 0; transition: opacity 1s ease;">
+                    <a href="index.html" class="terminal-btn"
+                        style="text-decoration: none; display: inline-block;">RETURN TO HOME</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = [
+                { id: 'line1', text: '> status: success' },
+                { id: 'line2', text: '> channel: secure' },
+                { id: 'line3', text: '> delivery: confirmed' }
+            ];
+
+            let lineIndex = 0;
+            let charIndex = 0;
+
+            function typeWriter() {
+                if (lineIndex < lines.length) {
+                    const currentLine = lines[lineIndex];
+                    const element = document.getElementById(currentLine.id);
+
+                    if (charIndex < currentLine.text.length) {
+                        element.textContent += currentLine.text.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeWriter, 50); // Typing speed
+                    } else {
+                        lineIndex++;
+                        charIndex = 0;
+                        setTimeout(typeWriter, 200); // Pause between lines
+                    }
+                } else {
+                    // Animation complete, show rest of content
+                    document.querySelector('.success-message').style.opacity = '1';
+                    document.querySelector('.center-btn').style.opacity = '1';
+                }
+            }
+
+            // Start animation after a brief delay
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+</body>
+
+</html>
