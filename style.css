@@ -123,47 +123,56 @@ nav {
     text-shadow: 0 0 8px var(--accent-color);
 }
 
-/* Mobile Navigation - Horizontal Scroll */
+/* Mobile Navigation */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 0.8rem;
+        /* Tighter gap */
+        width: 100%;
+        padding: 0 1rem;
+        /* Add side padding to container */
     }
 
     .nav-links {
         width: 100%;
         overflow-x: auto;
-        /* Enable horizontal swipe */
-        padding-bottom: 5px;
-        /* Space for scrollbar if visible (though hidden below) */
+        padding-bottom: 0;
         -webkit-overflow-scrolling: touch;
-        /* Smooth scroll on iOS */
-
-        /* Hide Scrollbar */
+        gap: 1.5rem;
+        /* Hide scrollbar */
         scrollbar-width: none;
-        /* Firefox */
         -ms-overflow-style: none;
-        /* IE/Edge */
+        /* Ensure items start from left */
+        justify-content: flex-start;
     }
 
     .nav-links::-webkit-scrollbar {
         display: none;
-        /* Chrome/Safari */
     }
 
-    /* Ensure first/last items have padding for easy tapping */
     .nav-links li:last-child {
         padding-right: 1rem;
+    }
+
+    .logo {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
     }
 }
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    /* Changed from height: 100vh to min-height */
+    height: auto;
+    /* Allow auto height for mobile content */
     display: flex;
     align-items: center;
-    padding-top: 4rem;
+    padding-top: 6rem;
+    /* Ensure clearance for fixed header */
+    padding-bottom: 4rem;
 }
 
 .terminal-text {
@@ -565,25 +574,33 @@ footer {
 
     /* Mobile Spacing Improvements */
     .section {
-        padding: 4rem 1.5rem;
-        /* More generous vertical padding */
+        padding: 3rem 1rem;
+        /* Reduced from 4rem 1.5rem */
     }
 
     .section-title {
-        margin-bottom: 2rem;
-        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        /* Reduced from 2rem */
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        padding-top: 7rem;
+        /* Specific adjustments for mobile hero */
+        padding-bottom: 2rem;
+        min-height: auto;
+        /* Let content dictate height on very small screens */
     }
 
     .timeline-container {
-        margin-top: 2rem;
-        padding-bottom: 1rem;
+        margin-top: 1.5rem;
+        padding-bottom: 0;
     }
 
     .project-card,
     .terminal-window {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         width: 100%;
-        /* Ensure full width */
     }
 
     .profile-card {
