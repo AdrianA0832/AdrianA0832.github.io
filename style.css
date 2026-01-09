@@ -220,6 +220,18 @@ footer {
     color: var(--text-secondary);
 }
 
+/* Scroll Reveal Animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .typewriter-text {
     font-family: var(--font-mono);
     color: var(--accent-color) !important;
@@ -341,6 +353,90 @@ footer {
     border-color: var(--accent-color);
     color: var(--accent-color);
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+/* how_i_work Interactive Element */
+.how-i-work-wrapper {
+    position: relative;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.work-trigger {
+    display: inline-block;
+    border: 1px solid #333;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    background: #0f0f0f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.work-trigger:hover,
+.work-trigger.active {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.work-popup {
+    display: none;
+    position: absolute;
+    bottom: 130%;
+    /* Position above the trigger */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0d0d0d;
+    border: 1px solid var(--accent-color);
+    padding: 1rem;
+    width: max-content;
+    max-width: 90vw;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+    font-family: var(--font-mono);
+}
+
+/* Show popup on hover or when active class is present */
+.work-trigger:hover+.work-popup,
+.work-trigger.active+.work-popup {
+    display: block;
+}
+
+.popup-title {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 0.2rem;
+}
+
+.work-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.work-list li {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+/* Mobile: Ensure it doesn't go off screen if centered */
+@media (max-width: 480px) {
+    .work-list li {
+        white-space: normal;
+    }
+
+    .work-popup {
+        width: 280px;
+    }
 }
 
 /* Contact Section */
@@ -578,6 +674,24 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+/* Submission Feedback Styling */
+.submission-feedback {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Left align like terminal output */
+}
+
+/* Override previous p styles if needed to be very clean */
+.submission-feedback p {
+    margin: 0.2rem 0;
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-family: var(--font-mono);
+}
+
 .blink {
     animation: blink 1s step-end infinite;
 }
@@ -587,6 +701,43 @@ footer {
         opacity: 0;
     }
 }
+
+/* Direct Contact Block */
+.direct-contact {
+    margin-top: 2rem;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    border: 1px dashed #333;
+    /* Subtle bordered container */
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.dc-command {
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.dc-output p {
+    color: var(--accent-color);
+    opacity: 0.8;
+    /* Dimmer green */
+    margin-bottom: 0.3rem;
+    white-space: pre-wrap;
+    /* Allow wrapping on small screens */
+}
+
+.dc-output a {
+    color: inherit;
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+.dc-output a:hover {
+    opacity: 1;
+}
+
 
 /* Experience Timeline */
 .timeline-container {
