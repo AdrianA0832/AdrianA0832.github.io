@@ -708,6 +708,10 @@ footer {
         margin-bottom: 0.2rem;
         font-size: 0.85rem;
     }
+
+    .terminal-body {
+        padding: 1rem;
+    }
 }
 
 /* Contact Section - Terminal Style */

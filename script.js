@@ -127,7 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Error:', error);
                     submitBtn.innerText = "TRANSMISSION FAILED. RETRY?";
                     submitBtn.disabled = false;
-                    alert("Error connecting to secure channel. Please try again.");
+                    // Re-enable inputs
+                    inputs.forEach(input => {
+                        input.disabled = false;
+                        input.style.opacity = '1';
+                        input.style.cursor = 'text';
+                    });
+
                 });
         });
     }
