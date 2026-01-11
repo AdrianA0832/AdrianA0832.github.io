@@ -80,61 +80,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- AJAX Contact Form ---
+    // --- Native Contact Form with Feedback ---
     const contactForm = document.querySelector('.terminal-form');
-    // Ensure we are targeting the form inside the contact section
     if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default redirection
+        contactForm.addEventListener('submit', function () {
+            // Do NOT preventDefault() - allow native submission
+            // Do NOT use fetch/AJAX - use standard FormSubmit behavior
 
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            // Visual Feedback Only:
+            // Hide the form and show the transmission message immediately
+            // while the browser handles the POST request.
 
-            // Disable button during transmission
-            submitBtn.disabled = true;
-            submitBtn.innerText = "TRANSMITTING...";
-
-            // Fade out inputs to indicate disabled state
-            const inputs = contactForm.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                input.disabled = true;
-                input.style.opacity = '0.5';
-                input.style.cursor = 'not-allowed';
-            });
-
-            const formData = new FormData(contactForm);
-
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        // Success: Hide form, show feedback
-                        contactForm.style.display = 'none';
-                        const feedback = document.getElementById('feedback');
-                        if (feedback) {
-                            feedback.style.display = 'block';
-                        }
-                    } else {
-                        // Error state
-                        throw new Error('Network response was not ok');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    submitBtn.innerText = "TRANSMISSION FAILED. RETRY?";
-                    submitBtn.disabled = false;
-                    // Re-enable inputs
-                    inputs.forEach(input => {
-                        input.disabled = false;
-                        input.style.opacity = '1';
-                        input.style.cursor = 'text';
-                    });
-
-                });
+            contactForm.style.display = 'none';
+            const feedback = document.getElementById('feedback');
+            if (feedback) {
+                feedback.style.display = 'block';
+            }
         });
     }
 });
