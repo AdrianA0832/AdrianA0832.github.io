@@ -80,22 +80,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Native Contact Form with Feedback ---
     const contactForm = document.querySelector('.terminal-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function () {
-            // Do NOT preventDefault() - allow native submission
-            // Do NOT use fetch/AJAX - use standard FormSubmit behavior
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent native redirect
 
-            // Visual Feedback Only:
-            // Hide the form and show the transmission message immediately
-            // while the browser handles the POST request.
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'SENDING...';
+            submitBtn.disabled = true;
 
-            contactForm.style.display = 'none';
-            const feedback = document.getElementById('feedback');
-            if (feedback) {
-                feedback.style.display = 'block';
-            }
+            const formData = new FormData(contactForm);
+
+            // Use fetch to post to FormSubmit
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    // Hiding form and showing feedback regardless of strict 200 to ensure UX flow
+                    contactForm.style.display = 'none';
+                    const feedback = document.getElementById('feedback');
+                    if (feedback) {
+                        feedback.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Transmission failed:', error);
+                    submitBtn.innerText = 'TRANSMISSION FAILED - RETRY';
+                    submitBtn.disabled = false;
+                });
         });
     }
 });

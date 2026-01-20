@@ -48,13 +48,13 @@
             <h2 class="section-title"><span class="hash">#</span> whoami</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p class="typewriter-text" id="bio-text">System.out.print('Hello, World!'); // ...just kidding. I
-                        break things to make them stronger.</p>
-                    <p class="scroll-reveal">Learning offensive security concepts and threat modeling basics,
-                        with the aim of understanding vulnerabilities and how systems
-                        can be better protected.</p>
-                    <p class="terminal-text" style="margin-top: 1rem;">mindset: learn -> test -> improve | ethics >
-                        shortcuts</p>
+                    <p class="typewriter-text" id="bio-text">Building practical offensive security workflows focused on
+                        discovery, validation, and reporting.</p>
+                    <p class="scroll-reveal">I approach security with an engineering mindset—analyzing system
+                        architecture to understand failure modes, not just running exploits. My work focuses on bridging
+                        the gap between offensive discovery and defensive remediation.</p>
+                    <p class="terminal-text" style="margin-top: 1rem;">mindset: discovery -> validation -> remediation |
+                        clarity > hype</p>
                 </div>
                 <div class="profile-card status-panel">
                     <div class="terminal-session">
@@ -63,19 +63,18 @@
                         </div>
                         <div class="command-output">
                             <span class="output-line">Role : VAPT Intern</span>
-                            <span class="output-line">Focus : Web Security, Recon, Reporting</span>
-                            <span class="output-line">Availability: Open to learning & collaboration</span>
-                            <span class="output-line">Location : Remote / India</span>
+                            <span class="output-line">Focus : Web App Security, Logic Flaws, Reporting</span>
+                            <span class="output-line">Location : India | Open to relocation (Bangalore)</span>
+                            <span class="output-line">Availability : Open to Internships / Junior Roles</span>
                         </div>
-
                         <div class="command-line">
-                            <span class="prompt">$</span> learning_queue
+                            <span class="prompt">$</span> cat roadmap.txt
                         </div>
                         <div class="command-output">
-                            <span class="output-line">[ ] Advanced recon workflows</span>
-                            <span class="output-line">[ ] Logic flaw identification</span>
-                            <span class="output-line chk-done">[x] Web fundamentals</span>
-                            <span class="output-line chk-done">[x] Basic VAPT methodology</span>
+                            <span class="output-line">[ ] Active Directory Exploitation</span>
+                            <span class="output-line">[ ] Cloud Security Architecture</span>
+                            <span class="output-line chk-done">[x] Network Pivot Techniques</span>
+                            <span class="output-line chk-done">[x] Custom Security Tooling</span>
                         </div>
                     </div>
                 </div>
@@ -85,41 +84,61 @@
         <section id="projects" class="container section">
             <h2 class="section-title"><span class="hash">#</span> operations_log</h2>
             <div class="projects-grid">
+                <!-- Project 1: SentinelMesh (Centerpiece) -->
                 <article class="project-card">
                     <div class="card-header">
-                        <span class="folder-icon">📁</span>
-                        <h3>Net_Hunter_v2</h3>
+                        <span class="folder-icon">🛡️</span>
+                        <h3>SentinelMesh</h3>
                     </div>
-                    <p>Advanced network reconnaissance tool written in Python. Automates port scanning and service
-                        enumeration with stealth modules.</p>
+                    <p>Local-first network visibility ecosystem designed for privacy-conscious environments. Engineered
+                        to detect anomalies without external data leakage.</p>
                     <div class="tech-stack">
-                        <span>Python</span><span>Scapy</span><span>Docker</span>
+                        <span>Python</span><span>FastAPI</span><span>Real-time Analysis</span>
                     </div>
-                    <a href="#" class="src-link">view_source</a>
+                    <a href="https://github.com/AdrianA0832/SentinelMesh" target="_blank"
+                        class="src-link">view_source</a>
                 </article>
+
+                <!-- Project 2: TriBrain -->
                 <article class="project-card">
                     <div class="card-header">
-                        <span class="folder-icon">📁</span>
-                        <h3>Ransom_Decrypt</h3>
+                        <span class="folder-icon">🧠</span>
+                        <h3>TriBrain</h3>
                     </div>
-                    <p>Proof-of-concept ransomware decryptor utilizing flaw in key generation algorithm. Released for
-                        educational analysis.</p>
+                    <p>Internal pentest orchestration assistant. Enforces methodology consistency and structures raw
+                        findings into reporting-ready evidence.</p>
                     <div class="tech-stack">
-                        <span>C++</span><span>Cryptography</span><span>Reverse Eng</span>
+                        <span>Workflow Automation</span><span>Evidence Management</span>
                     </div>
-                    <a href="#" class="src-link">view_source</a>
+                    <a href="#" class="src-link">status: internal_tool</a>
                 </article>
+
+                <!-- Project 3: Labs -->
                 <article class="project-card">
                     <div class="card-header">
-                        <span class="folder-icon">📁</span>
-                        <h3>Ghost_Shell</h3>
+                        <span class="folder-icon">🔬</span>
+                        <h3>Web App Security Labs</h3>
                     </div>
-                    <p>Undetectable web shell for red team engagements. Features encrypted C2 channel and polyglot
-                        payload delivery.</p>
+                    <p>Structured documentation of manual exploitation techniques. Focus on logic flaws, race
+                        conditions, and complex trust boundary violations.</p>
                     <div class="tech-stack">
-                        <span>PHP</span><span>Go</span><span>Assembly</span>
+                        <span>Manual Exploitation</span><span>Logic Flaws</span>
                     </div>
-                    <a href="#" class="src-link">view_source</a>
+                    <a href="#" class="src-link">view_methodology</a>
+                </article>
+
+                <!-- Project 4: Internship -->
+                <article class="project-card">
+                    <div class="card-header">
+                        <span class="folder-icon">💼</span>
+                        <h3>VAPT Engagement Log</h3>
+                    </div>
+                    <p>Executed vulnerability assessments on enterprise web assets. Delivered validated findings with
+                        remediation-focused reporting.</p>
+                    <div class="tech-stack">
+                        <span>Enterprise VAPT</span><span>Reporting</span>
+                    </div>
+                    <a href="#" class="src-link">view_summary</a>
                 </article>
             </div>
         </section>
@@ -130,22 +149,27 @@
                 <div class="skill-category">
                     <h3>> Red_Team</h3>
                     <div class="skill-tags">
-                        <span>Metasploit</span><span>Cobalt Strike</span><span>Burp Suite</span>
-                        <span>SQL Injection</span><span>XSS</span><span>Social Engineering</span>
+                        <span title="Nmap, Amass, Subfinder">Attack surface mapping</span>
+                        <span title="Burp Suite, Manual Testing">Manual vulnerability validation</span>
+                        <span title="Business Logic Testing">Logic flaw discovery</span>
+                        <span title="PoC Development">Report-grade reproduction</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>> Blue_Team</h3>
                     <div class="skill-tags">
-                        <span>SIEM (Splunk)</span><span>Wireshark</span><span>Incident Response</span>
-                        <span>Malware Analysis</span><span>Snort</span><span>Forensics</span>
+                        <span title="Splunk, ELK">Log-based attack detection</span>
+                        <span title="TheHive, Cortex">Incident triage workflows</span>
+                        <span title="Wireshark, Zeek">Traffic anomaly analysis</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>> Languages</h3>
+                    <h3>> Builder_Mode</h3>
                     <div class="skill-tags">
-                        <span>Python</span><span>Bash</span><span>C/C++</span>
-                        <span>JavaScript</span><span>Go</span><span>PowerShell</span>
+                        <span title="Python, Go">Security tooling development</span>
+                        <span title="Bash, APIs">Recon/report automation</span>
+                        <span title="FastAPI, SQLite">Local-first monitoring systems</span>
+                        <span title="HTML/CSS, CLI Design">UX for security engineers</span>
                     </div>
                 </div>
             </div>
@@ -260,8 +284,7 @@
                     <div class="terminal-body">
                         <div class="terminal-log">
                             <p>> establishing secure channel...</p>
-                            <p>> identity: cybersecurity_student</p>
-                            <p>> intent: professional_contact</p>
+                            <p>> identity: security_engineer</p>
                             <p class="status-ready">> status: ready</p>
                         </div>
 
@@ -271,11 +294,8 @@
                             <!-- Spam protection -->
                             <input type="hidden" name="_captcha" value="false">
                             <input type="text" name="_honey" style="display:none">
-
-                            <!-- Email configuration -->
-                            <input type="hidden" name="_subject" value="New Secure Transmission from Portfolio">
+                            <input type="hidden" name="_subject" value="New Transmission from Portfolio">
                             <input type="hidden" name="_template" value="table">
-                            <!-- No redirect input needed for AJAX -->
 
                             <div class="form-group">
                                 <label>&gt; username:</label>
@@ -298,14 +318,8 @@
                         </form>
 
                         <div class="submission-feedback" id="feedback" style="display: none;">
-                            <p>Transmission logged.</p>
-                            <p>Response pending.</p>
-                        </div>
-
-                        <div class="privacy-notice">
-                            <p class="notice-header">[secure_notice]</p>
-                            <p>Minimal data collected. Honeypot-based spam protection enabled.</p>
-                            <p>Messages are delivered directly to my inbox.</p>
+                            <p>> Transmission logged.</p>
+                            <p>> Response pending.</p>
                         </div>
 
                         <div class="direct-contact">
