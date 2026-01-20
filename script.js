@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const feedback = document.getElementById('feedback');
                     if (feedback) {
                         feedback.style.display = 'block';
+                        feedback.innerHTML = '<p>> transmission logged.</p><p>> response pending.</p>';
                     }
                 })
                 .catch(error => {
