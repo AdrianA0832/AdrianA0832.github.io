@@ -323,8 +323,8 @@ function initScrollParallax() {
     targetVelocity *= 0.88; 
     velocity += (targetVelocity - velocity) * 0.12;
     
-    // Clamp to prevent extreme distortions
-    const clampedVelocity = Math.max(-15, Math.min(15, velocity));
+    // Clamp to prevent extreme distortions and white arc GPU clipping
+    const clampedVelocity = Math.max(-4, Math.min(4, velocity));
     
     // Only update DOM if velocity is noticeable to save CPU
     if (Math.abs(clampedVelocity) > 0.01) {
