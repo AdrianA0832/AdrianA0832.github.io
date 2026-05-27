@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adrian A | Cybersecurity Specialist &amp; Penetration Tester</title>
+  <meta name="description" content="Cybersecurity portfolio of Adrian A, VAPT Intern &amp; Red Teamer specializing in Web App Security, manual exploitation, and logic flaw discovery.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+  <!-- Global Particle Network Background -->
+  <canvas id="particleCanvas" class="global-particles"></canvas>
+
+  <!-- Header / Navigation -->
+  <header class="main-header" id="mainHeader">
+    <div class="logo-container" id="logoContainer">
+      <a href="#" class="logo-link magnetic" aria-label="Adrian A Home">
+        <div class="logo-icon-wrap">
+          <svg class="logo-rings" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2.5" />
+          </svg>
+        </div>
+        <span class="logo-text">Adrian A<span class="logo-dot">.</span></span>
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="#operations" class="nav-link scroll-link magnetic">Operations</a></li>
+        <li><a href="#about" class="nav-link scroll-link magnetic">About</a></li>
+        <li><a href="#skills-section" class="nav-link scroll-link magnetic">Capabilities</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <button class="theme-toggle magnetic" id="themeToggle" aria-label="Toggle light and dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <button class="contact-trigger-btn magnetic" id="contactTrigger" aria-label="Scroll to contact section">
+        Contact Me
+      </button>
+
+      <!-- Hamburger — mobile only -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+      <ul class="mobile-nav-links">
+        <li><a href="#operations" class="mobile-nav-link scroll-link" id="mobileLink1">Operations</a></li>
+        <li><a href="#about" class="mobile-nav-link scroll-link" id="mobileLink2">About</a></li>
+        <li><a href="#skills-section" class="mobile-nav-link scroll-link" id="mobileLink3">Capabilities</a></li>
+        <li><a href="#contact" class="mobile-nav-link scroll-link" id="mobileLink4">Contact Me</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section" id="hero">
+
+      <!-- Portrait — swaps based on theme -->
+      <div class="hero-portrait-wrap" id="heroPortraitWrap">
+        <img src="/adrian-light.png" alt="Adrian A" class="hero-portrait hero-portrait-light">
+        <img src="/adrian-dark.png" alt="Adrian A" class="hero-portrait hero-portrait-dark">
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="title-line-solid reveal-el" id="heroSolidTitle">
+            <span class="scramble-text magnetic" id="heroSolidText" data-value="Red Teamer">Red Teamer</span>
+            <span class="arrow-circle-btn scroll-link-btn magnetic" id="arrowDownTrigger">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </span>
+          <span class="title-line-outline reveal-el" id="heroOutlineTitle">
+            <span class="scramble-text magnetic" id="heroOutlineText" data-value="Blue Teamer">Blue Teamer</span>
+          </span>
+        </h1>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         OPERATIONS LOG — Static 3-column grid
+         ===================================================== -->
+    <section class="operations-section reveal-el reveal-3d" id="operations">
+      <div class="ops-container">
+        <div class="ops-header">
+          <div class="ops-title-bar">
+            <h2 class="ops-heading"># operations_log</h2>
+          </div>
+        </div>
+
+        <div class="ops-grid">
+
+          <!-- Card 1: SentinelMesh -->
+          <div class="ops-card tilt-card scroll-3d" id="opsCard1">
+            <div class="ops-card-inner">
+              <div class="ops-card-header">
+                <span class="ops-icon">🛡️</span>
+                <h3 class="ops-card-title">SentinelMesh</h3>
+              </div>
+              <p class="ops-card-desc">Local-first network visibility ecosystem designed for privacy-conscious environments. Engineered to detect anomalies without external data leakage.</p>
+              <div class="ops-tags">
+                <span class="ops-tag">Python</span>
+                <span class="ops-tag">FastAPI</span>
+                <span class="ops-tag">Real-time Analysis</span>
+              </div>
+              <div class="ops-card-footer">
+                <span class="ops-status">status: internal</span>
+                <a href="https://github.com/AdrianA0832/SentinelMesh" target="_blank" rel="noopener" class="ops-link">view_source</a>
+              </div>
+            </div>
+            <div class="card-glow-layer"></div>
+          </div>
+
+          <!-- Card 2: TriBrain -->
+          <div class="ops-card tilt-card scroll-3d" id="opsCard2">
+            <div class="ops-card-inner">
+              <div class="ops-card-header">
+                <span class="ops-icon">🧠</span>
+                <h3 class="ops-card-title">TriBrain</h3>
+              </div>
+              <p class="ops-card-desc">Internal pentest orchestration assistant. Enforces methodology consistency and structures raw findings into reporting-ready evidence.</p>
+              <div class="ops-tags">
+                <span class="ops-tag">Workflow Automation</span>
+                <span class="ops-tag">Evidence Management</span>
+              </div>
+              <div class="ops-card-footer">
+                <span class="ops-status">status: ongoing_internal_tool</span>
+                <span class="ops-link denied">view_source_denied</span>
+              </div>
+            </div>
+            <div class="card-glow-layer"></div>
+          </div>
+
+          <!-- Card 3: Web App Security Labs -->
+          <div class="ops-card tilt-card scroll-3d" id="opsCard3">
+            <div class="ops-card-inner">
+              <div class="ops-card-header">
+                <span class="ops-icon">🔬</span>
+                <h3 class="ops-card-title">Web App Security Labs</h3>
+              </div>
+              <p class="ops-card-desc">Structured documentation of manual exploitation techniques. Focus on logic flaws, race conditions, and complex trust boundary violations.</p>
+              <div class="ops-tags">
+                <span class="ops-tag">Manual Exploitation</span>
+                <span class="ops-tag">Logic Flaws</span>
+              </div>
+              <div class="ops-card-footer">
+                <span class="ops-status">status: ongoing_research</span>
+                <a href="#" class="ops-link">view_methodology</a>
+              </div>
+            </div>
+            <div class="card-glow-layer"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section & Experience -->
+    <section class="about-section reveal-el reveal-3d" id="about">
+      <div class="about-container">
+        <div class="about-grid">
+          <div class="about-col-left reveal-el scroll-3d">
+            <h2 class="section-title">
+              <span class="title-sub">whoami</span>
+              <span class="title-main">Discovery first.<br>Ethics over ego.</span>
+            </h2>
+            <div class="about-philosophy">
+              <p>
+                I build practical offensive security workflows focused on deep threat discovery, manual validation, and thorough reporting. Instead of relying blindly on automated scanners, I analyze system architecture to identify silent logical failure modes, validating findings through safe manual reproduction.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-col-right reveal-el scroll-3d">
+            <div class="capabilities-block">
+              <h3 class="cap-title">Experience Log</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-node"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">Dec 2025 – Present</span>
+                    <div class="timeline-role">VAPT Intern</div>
+                    <span class="timeline-company">Gateway Software Solutions</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-node"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">Oct 2025 – Jan 2026</span>
+                    <div class="timeline-role">Cybersecurity &amp; Ethical Hacking Training</div>
+                    <span class="timeline-company">Boston Institute of Analytics (BIA)</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-node"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">Jul 2025 – Oct 2025</span>
+                    <div class="timeline-role">Cybersecurity Virtual Intern</div>
+                    <span class="timeline-company">Deloitte (Forage)</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-node"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">Sep 2023</span>
+                    <div class="timeline-role">Event Coordinator</div>
+                    <span class="timeline-company">Techtronix</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Threat Thinking Section -->
+    <section class="thinking-section reveal-el reveal-3d" id="thinking">
+      <div class="thinking-container">
+        <h2 class="section-title">
+          <span class="title-sub">Mental Model</span>
+          <span class="title-main">threat_thinking</span>
+        </h2>
+        <div class="thinking-content">
+          <p class="thinking-intro">"When I look at an application, I do not start with tools. I start with questions."</p>
+          
+          <div class="thinking-grid">
+            <div class="thinking-card tilt-card scroll-3d">
+              <span class="card-num">01</span>
+              <p>What does this system trust by default?</p>
+            </div>
+            <div class="thinking-card tilt-card scroll-3d">
+              <span class="card-num">02</span>
+              <p>Who is allowed to interact with it?</p>
+            </div>
+            <div class="thinking-card tilt-card scroll-3d">
+              <span class="card-num">03</span>
+              <p>Where does user-controlled data enter?</p>
+            </div>
+            <div class="thinking-card tilt-card scroll-3d">
+              <span class="card-num">04</span>
+              <p>What assumptions are being made?</p>
+            </div>
+            <div class="thinking-card tilt-card scroll-3d">
+              <span class="card-num">05</span>
+              <p>What happens if one assumption is wrong?</p>
+            </div>
+          </div>
+
+          <div class="focus-bar">
+            <h4>Engineered priorities:</h4>
+            <div class="focus-items">
+              <div class="focus-item">
+                <span class="focus-check">⚡</span>
+                <span>Logic flaws over payloads</span>
+              </div>
+              <div class="focus-item">
+                <span class="focus-check">⚡</span>
+                <span>Trust boundaries over endpoints</span>
+              </div>
+              <div class="focus-item">
+                <span class="focus-check">⚡</span>
+                <span>Design intent over implementation</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="thinking-quote-wrap" style="margin-top: 35px; border-top: 1px dashed var(--border-color); padding-top: 25px;">
+            <p class="thinking-outro" style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.6; font-style: italic; color: var(--text-primary); text-align: center; max-width: 700px; margin: 0 auto;">"My goal is not to break applications, but to understand how they fail so they can be designed more securely."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities / Skill Section -->
+    <section class="skills-section-container reveal-el reveal-3d" id="skills-section">
+      <div class="about-container">
+        <h2 class="section-title">
+          <span class="title-sub">Technical Arsenal</span>
+          <span class="title-main">capabilities</span>
+        </h2>
+        
+        <div class="skills-showcase-grid">
+          <div class="skill-category-card tilt-card scroll-3d">
+            <h3 class="skill-cat-title">&gt; Red_Team</h3>
+            <span class="skill-cat-subtitle">focus: discovery → validation → reporting</span>
+            <ul class="skill-tag-list">
+              <li title="Nmap, Amass, Subfinder">Attack surface mapping</li>
+              <li title="Burp Suite, Manual Testing">Manual vulnerability validation</li>
+              <li title="Business Logic Testing">Logic flaw discovery</li>
+              <li title="PoC Development">Report-grade reproduction</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card tilt-card scroll-3d">
+            <h3 class="skill-cat-title">&gt; Blue_Team</h3>
+            <span class="skill-cat-subtitle">focus: detection → triage → response</span>
+            <ul class="skill-tag-list">
+              <li title="Splunk, ELK">Log-based attack detection</li>
+              <li title="TheHive, Cortex">Incident triage workflows</li>
+              <li title="Wireshark, Zeek">Traffic anomaly analysis</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card tilt-card scroll-3d">
+            <h3 class="skill-cat-title">&gt; Builder_Mode</h3>
+            <span class="skill-cat-subtitle">focus: reduce friction, increase signal</span>
+            <ul class="skill-tag-list">
+              <li title="Python, Go">Security tooling development</li>
+              <li title="Bash, APIs">Recon &amp; report automation</li>
+              <li title="FastAPI, SQLite">Local-first monitoring systems</li>
+              <li title="HTML/CSS, CLI Design">UX for security engineers</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT SECTION — Centered Terminal
+         ===================================================== -->
+    <section class="contact-section reveal-el reveal-3d" id="contact">
+      <div class="contact-container">
+        <div class="contact-header reveal-el" style="display: flex; justify-content: center; width: 100%; margin-bottom: 30px;">
+          <div class="ops-title-bar">
+            <h2 class="ops-heading"># initiate_comms</h2>
+          </div>
+        </div>
+
+        <div class="terminal-contact-wrap reveal-el scroll-3d">
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/adriananthony0832@gmail.com" method="POST">
+            <!-- Anti-spam & redirect -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://adrianinfosec.me">
+            <input type="text" name="_honey" style="display:none">
+
+            <div class="term-window" id="contactTerminal">
+              <div class="term-topbar">
+                <div class="term-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <span class="term-title">secure_channel.exe</span>
+                <span class="term-status-pill">● SECURE</span>
+              </div>
+
+              <div class="term-body">
+                <div class="term-logs">
+                  <div class="term-log-line">&gt; establishing secure channel...</div>
+                  <div class="term-log-line">&gt; identity: security_engineer</div>
+                  <div class="term-log-line">&gt; status: ready</div>
+                </div>
+
+                <div class="term-form-fields">
+                  <div class="term-field-group">
+                    <label for="formName" class="term-label">&gt; username:</label>
+                    <input type="text" id="formName" name="username" class="term-input" required placeholder="Enter handle...">
+                  </div>
+                  <div class="term-field-group">
+                    <label for="formEmail" class="term-label">&gt; email_address:</label>
+                    <input type="email" id="formEmail" name="email" class="term-input" required placeholder="Enter address...">
+                  </div>
+                  <div class="term-field-group">
+                    <label for="formMessage" class="term-label">&gt; transmission:</label>
+                    <textarea id="formMessage" name="message" class="term-textarea" rows="4" required placeholder="Enter payload details..."></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="term-submit-btn magnetic" id="formSubmitBtn">
+                  SEND TRANSMISSION
+                </button>
+
+                <div class="term-info-box">
+                  <div class="info-header">$ connect --contact</div>
+                  <div class="info-body">
+                    <div class="info-row">
+                      <span class="info-key">email:</span>
+                      <a href="mailto:adriananthony0832@gmail.com" class="info-value link-highlight">adriananthony0832@gmail.com</a>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">linkedin:</span>
+                      <a href="https://www.linkedin.com/in/a-adrian0832" target="_blank" rel="noopener" class="info-value link-highlight">https://www.linkedin.com/in/a-adrian0832</a>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">status:</span>
+                      <span class="info-value">open to professional conversations</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">note:</span>
+                      <span class="info-value">student operator | learning mode enabled</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Success Overlay -->
+            <div class="form-success-overlay" id="formSuccess">
+              <div class="success-message-box">
+                <span class="success-emoji">🛡️</span>
+                <h3>Transmission Logged!</h3>
+                <p>Channel secure. I will audit your message and initiate feedback within 24 hours.</p>
+                <button type="button" class="success-close-btn" id="successClose">Return to Console</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Portfolio Lightbox Viewer -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p class="footer-minimal">&copy; 2026 Adrian InfoSec. All systems operational.</p>
+  </footer>
+
+  <!-- Script Modules -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
