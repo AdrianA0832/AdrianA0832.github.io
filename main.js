@@ -219,30 +219,125 @@ function initHowIWorkToggle() {
 // 12. FORM SUBMISSION HANDLER
 // ---------------------------------------------------------------------------
 if (elements.contactForm) {
+  let isSubmitting = false;
   elements.contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    isSubmitting = true;
 
-    const submitBtn = elements.contactForm.querySelector('.term-submit-btn');
-    const originalHTML = submitBtn ? submitBtn.innerHTML : '';
+    // --- Frontend validation ---
+    const nameField = document.getElementById('formName');
+    const emailField = document.getElementById('formEmail');
+    const messageField = document.getElementById('formMessage');
+
+    const nameVal = nameField ? nameField.value.trim() : '';
+    const emailVal = emailField ? emailField.value.trim() : '';
+    const messageVal = messageField ? messageField.value.trim() : '';
+
+    if (!nameVal || !emailVal || !messageVal) {
+      return; // HTML required attributes handle the UI, just guard the JS
+    }
+
+    // Basic email format check
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailVal)) {
+      emailField.focus();
+      return;
+    }
+
+    const submitBtn = document.getElementById('formSubmitBtn');
+    const termLogs = document.getElementById('termLogs');
 
     if (submitBtn) {
-      submitBtn.innerHTML = '<span>LOGGING TRANSMISSION...</span>';
+      submitBtn.textContent = 'LOGGING TRANSMISSION...';
       submitBtn.disabled = true;
     }
 
-    setTimeout(() => {
+    // Add a sending log line
+    if (termLogs) {
+      const sendingLine = document.createElement('div');
+      sendingLine.className = 'term-log-line';
+      sendingLine.textContent = '> transmitting payload...';
+      termLogs.appendChild(sendingLine);
+    }
+
+    const formData = new FormData(elements.contactForm);
+
+    fetch(elements.contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Server responded with ' + response.status);
+      }
+
+      // --- SUCCESS ---
+      // Update terminal logs
+      if (termLogs) {
+        const successLine1 = document.createElement('div');
+        successLine1.className = 'term-log-line';
+        successLine1.textContent = '> Transmission logged.';
+        successLine1.style.color = 'var(--accent-pink)';
+        termLogs.appendChild(successLine1);
+
+        const successLine2 = document.createElement('div');
+        successLine2.className = 'term-log-line';
+        successLine2.textContent = '> Secure channel established.';
+        successLine2.style.color = 'var(--accent-pink)';
+        termLogs.appendChild(successLine2);
+
+        const successLine3 = document.createElement('div');
+        successLine3.className = 'term-log-line';
+        successLine3.textContent = '> Response pending.';
+        successLine3.style.color = 'var(--accent-pink)';
+        termLogs.appendChild(successLine3);
+      }
+
+      // Update button text
+      if (submitBtn) {
+        submitBtn.textContent = 'TRANSMISSION LOGGED';
+        submitBtn.disabled = false;
+      }
+
+      // Show success overlay
       if (elements.formSuccess) {
         elements.formSuccess.classList.add('active');
       }
+
+      // Clear the form
+      elements.contactForm.reset();
+      isSubmitting = false;
+    })
+    .catch(error => {
+      console.error('Transmission failed:', error);
+
+      // Update terminal logs with failure
+      if (termLogs) {
+        const failLine1 = document.createElement('div');
+        failLine1.className = 'term-log-line';
+        failLine1.textContent = '> Transmission failed.';
+        failLine1.style.color = '#ff4444';
+        termLogs.appendChild(failLine1);
+
+        const failLine2 = document.createElement('div');
+        failLine2.className = 'term-log-line';
+        failLine2.textContent = '> Retry connection.';
+        failLine2.style.color = '#ff4444';
+        termLogs.appendChild(failLine2);
+      }
+
+      // Update button
       if (submitBtn) {
-        submitBtn.innerHTML = originalHTML;
+        submitBtn.textContent = 'FAILED - RETRY';
         submitBtn.disabled = false;
       }
-      
-      // Submit the form natively to FormSubmit (bypassing event listeners)
-      elements.contactForm.submit();
-      elements.contactForm.reset();
-    }, 1200);
+      isSubmitting = false;
+
+    });
   });
 }
 
@@ -250,6 +345,11 @@ if (elements.successClose) {
   elements.successClose.addEventListener('click', () => {
     if (elements.formSuccess) {
       elements.formSuccess.classList.remove('active');
+    }
+    // Reset button text back to default
+    const submitBtn = document.getElementById('formSubmitBtn');
+    if (submitBtn) {
+      submitBtn.textContent = 'SEND TRANSMISSION';
     }
   });
 }
@@ -549,7 +649,7 @@ function initParticles() {
         const dy = p.y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 200) {
-          ctx.strokeStyle = isDark ? `rgba(255, 0, 85, ${(1 - dist / 200) * 0.4})` : `rgba(255, 0, 85, ${(1 - dist / 200) * 0.4})`;
+          ctx.strokeStyle = `rgba(255, 0, 85, ${(1 - dist / 200) * 0.4})`;
           ctx.lineWidth = (1 - dist / 200) * 1.5;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
@@ -668,4 +768,8 @@ window.addEventListener('DOMContentLoaded', () => {
   
   // Scramble switch hero roles periodically every 5.5s
   setInterval(switchHeroRole, 5500);
+
+  // Console branding
+  console.log('%c🛡️ Adrian A | Cybersecurity Portfolio', 'color: #ff0055; font-size: 16px; font-weight: bold;');
+  console.log('%cIf you\'re inspecting this, you\'re my kind of person. Let\'s connect!', 'color: #888; font-size: 12px;');
 });
